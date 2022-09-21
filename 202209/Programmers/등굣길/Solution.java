@@ -7,6 +7,7 @@ class Solution {
         int answer = 0;
         dp = new int[m][n];
         dp[0][0] = 1;
+        //현재 dp가 물웅덩이면 -1으로 초기화
         for(int k = 0 ; k < puddles.length ; k++) {
         	dp[puddles[k][0]-1][puddles[k][1]-1] = -1;
         }
@@ -15,7 +16,6 @@ class Solution {
             for (int j = 0 ; j < n ; j++){
             	if (dp[i][j] != -1) {
                     if(i > 0 || j > 0){ //[0][0]위치 배제
-                        //현재 dp가 물웅덩이면 0으로 초기화
                     	if (i == 0 && j > 0) {
                             dp[i][j] = dp[i][j-1];
                     	}
